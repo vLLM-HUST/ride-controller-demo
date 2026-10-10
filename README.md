@@ -5,7 +5,7 @@
 
 ## 安装与部署
 
-需要支持 `ride.controllers` entry point 的 RIDE 版本。
+使用 RIDE main（适配器支持从提交 8023739 起提供），在 RIDE 仓库安装 `.[ray]`。
 在管理进程和 Ray 执行节点安装本包，再启动或重启 RIDE 管理进程以发现适配器。
 
 ```sh
@@ -40,3 +40,21 @@ ride start controller demo-main
 停止只影响本实例、恢复产生新的 Ready Job。
 该模板不依赖 GPU 或模型；CPU 验收不能证明任何调度策略或硬件性能。
 云端验收状态见 RIDE 仓库对应结果；未运行项不得写成 PASS。
+
+## 可重复执行的验收
+
+在已经运行 RIDE 的隔离云端环境中：
+
+```sh
+python scripts/acceptance.py --endpoint http://CONTROLLER_HOST:9012 \
+  --address http://127.0.0.1:19100 --output demo-acceptance.json
+```
+
+此脚本会创建 demo-main、停止并恢复它，不能在同名生产实例上运行。
+脚本不启动或停止 Ray 集群；运行完成后 demo-main 保持运行供检查。
+验收证据必须先保存，再用 `ride stop controller demo-main` 清理。
+
+2026-10-10，9450 临时 CPU Pod 的端到端验收 PASS：真实 Ray/RIDE/独立 Demo，
+Ready、实际身份、重复启动、日志、停止和恢复均通过。RIDE 回归测试 14 项通过。
+Pod 已删除，未申请 GPU/NPU。原始日志见 `results/cloud.log`，机器可读结果见
+`results/acceptance.json`。这不证明模型请求处理或调度性能。

@@ -1,0 +1,50 @@
+Processing /tmp/ride
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: ride-control-plane
+  Building wheel for ride-control-plane (pyproject.toml): started
+  Building wheel for ride-control-plane (pyproject.toml): finished with status 'done'
+  Created wheel for ride-control-plane: filename=ride_control_plane-0.2.0-py3-none-any.whl size=16323 sha256=47c889ff0326513f656f4986aad16173c93c0a4aba8c7ccffe600d565282938f
+  Stored in directory: /tmp/pip-ephem-wheel-cache-4llpqjy9/wheels/30/d8/1b/a02e56a3eac4d3e756e8782245de2653e580190561c6681f8d
+Successfully built ride-control-plane
+Installing collected packages: ride-control-plane
+Successfully installed ride-control-plane-0.2.0
+Processing /tmp/ride-controller-demo
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: ride-controller-demo
+  Building wheel for ride-controller-demo (pyproject.toml): started
+  Building wheel for ride-controller-demo (pyproject.toml): finished with status 'done'
+  Created wheel for ride-controller-demo: filename=ride_controller_demo-0.1.0-py3-none-any.whl size=2906 sha256=66c37dbe313cf27685a361230426264f752ae7aee8d1bb4047429512e817bf8f
+  Stored in directory: /tmp/pip-ephem-wheel-cache-py77qn9t/wheels/e6/d3/c8/e3e554259c3fa554ea5ade7357f56a6074b7a396b6d5b0ddac
+Successfully built ride-controller-demo
+Installing collected packages: ride-controller-demo
+Successfully installed ride-controller-demo-0.1.0
+{
+  "job_id": "ride-controller-968efad45602482d8370535ac0e25071-a7c066b7",
+  "id": "demo-main",
+  "endpoint": "http://10.244.3.120:9012"
+}
+{
+  "job_id": "ride-controller-968efad45602482d8370535ac0e25071-a7c066b7",
+  "unchanged": true,
+  "id": "demo-main"
+}
+2026-10-10 14:55:57,977	INFO job_manager.py:531 -- Runtime env is setting up.
+{"event": "starting", "controller_type": "demo", "listen": "0.0.0.0:9012"}
+10.244.3.120 - - [10/Oct/2026 14:56:00] "GET /health HTTP/1.1" 200 -
+10.244.3.120 - - [10/Oct/2026 14:56:00] "GET /identity HTTP/1.1" 200 -
+10.244.3.120 - - [10/Oct/2026 14:56:00] "GET /status HTTP/1.1" 200 -
+10.244.3.120 - - [10/Oct/2026 14:56:00] "GET /health HTTP/1.1" 200 -
+10.244.3.120 - - [10/Oct/2026 14:56:00] "GET /identity HTTP/1.1" 200 -
+10.244.3.120 - - [10/Oct/2026 14:56:00] "GET /status HTTP/1.1" 200 -
+{
+  "job_id": "ride-controller-968efad45602482d8370535ac0e25071-a7c066b7",
+  "stop_requested": true
+}
+{
+  "job_id": "ride-controller-968efad45602482d8370535ac0e25071-eef763a1",
+  "id": "demo-main",
+  "endpoint": "http://10.244.3.120:9012"
+}
+{"status": "PASS", "scope": "CPU real Ray demo deployment, identity, idempotence, logs, stop and restore", "record": {"id": "demo-main", "type": "demo", "kind": "controllers", "endpoint": "http://10.244.3.120:9012", "job_id": "ride-controller-968efad45602482d8370535ac0e25071-eef763a1", "job_status": "RUNNING", "ready": true, "controller_ready": true, "health": {"status": "ok"}, "identity": {"controller_type": "demo", "version": "0.1.0"}, "status": {"mode": "demonstration", "decisions": 0}}}

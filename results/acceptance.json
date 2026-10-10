@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "scope": "CPU real Ray demo deployment, identity, idempotence, logs, stop and restore",
+  "record": {
+    "id": "demo-main",
+    "type": "demo",
+    "kind": "controllers",
+    "endpoint": "http://10.244.3.120:9012",
+    "job_id": "ride-controller-968efad45602482d8370535ac0e25071-eef763a1",
+    "job_status": "RUNNING",
+    "ready": true,
+    "controller_ready": true,
+    "health": {
+      "status": "ok"
+    },
+    "identity": {
+      "controller_type": "demo",
+      "version": "0.1.0"
+    },
+    "status": {
+      "mode": "demonstration",
+      "decisions": 0
+    }
+  }
+}
