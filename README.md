@@ -3,6 +3,8 @@
 独立 Controller 开发模板。RIDE 是控制平面，Ray 是执行底座；本仓库只实现一个
 可观察的 Controller 进程，不执行请求调度、不转发模型请求、不宣称性能收益。
 
+完整规范见 [RIDE Controller 开发规范](DEVELOPMENT.md)，包含系统分层、适配器接口、部署和验收标准。
+
 ## 安装与部署
 
 使用 RIDE main（适配器支持从提交 8023739 起提供），在 RIDE 仓库安装 `.[ray]`。
