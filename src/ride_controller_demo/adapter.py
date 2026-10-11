@@ -5,7 +5,9 @@ class Adapter:
  @staticmethod
  def command(spec):
   if not spec.get('endpoint'):raise ValueError('Demo requires a reachable endpoint')
-  return shlex.join(['python','-m','ride_controller_demo','--listen',spec.get('listen','0.0.0.0:9012')])
+  args=['python','-m','ride_controller_demo','--listen',spec.get('listen','0.0.0.0:9012'),'--max-concurrency',str(spec.get('max_concurrency',1))]
+  if spec.get('backend'):args.extend(['--backend',spec['backend']])
+  return shlex.join(args)
  @staticmethod
  def probe(spec):
   values={}
