@@ -9,3 +9,6 @@ CPU UT/Mock/integration checks are prerequisites, not complete end-to-end accept
 End-to-end acceptance requires real NPU vLLM requests, actual Controller action, output/state/log checks and stop/restore.
 Web UI is optional, never a prerequisite to delivering CLI deployment.
 Preserve historical evidence but label obsolete infrastructure procedures as historical.
+
+Mandatory procedure: https://github.com/vLLM-HUST/ride/blob/main/docs/ACCEPTANCE_PROCEDURE.md .
+Freeze plan/expected outcomes before execution; record each action and raw evidence. Existing Demo scripts do not cover every gate automatically. Missing negative/adoption evidence must remain NOT_RUN.

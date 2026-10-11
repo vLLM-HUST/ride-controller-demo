@@ -133,3 +133,10 @@ RIDE 目前没有通用策略 SDK、插件安全隔离、版本协商、自动�
 框架接入指南：[RIDE Controller Development](https://github.com/vLLM-HUST/ride/blob/main/docs/CONTROLLER_DEVELOPMENT.md)。
 总体设计：[RIDE 控制面设计文档（飞书）](https://ocnkis1vvvv6.feishu.cn/docx/CrCpd4KP8oM89pxtieyc0VnnnEf)。
 本仓库的开发规范以代码与已执行验收为准；飞书中的历史规划不代表全部已实现。
+
+## Coding agent 必须遵循的执行规程
+
+遵守 [统一验收规程](https://github.com/vLLM-HUST/ride/blob/main/docs/ACCEPTANCE_PROCEDURE.md)。
+先冻结计划、动作、预期和门禁，再执行；每项保留命令、实际结果与证据哈希。
+现有脚本不自动覆盖全部负例、管理接管或性能；缺失项不得从整体 PASS 推断。
+用户明确授权新建共用 RayCluster 时可建立一个，不得扩大到新 Coder 模板或工作区。
