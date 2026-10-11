@@ -1,3 +1,5 @@
+> 部署必须复用已有 RayCluster，不创建 Coder 模板／工作区。[统一边界规范](https://github.com/vLLM-HUST/ride/blob/main/docs/DEPLOYMENT_POLICY.md)。CPU 测试仅作前置检查，真实 NPU 端到端证据见 results/npu-20261011/summary.json。
+
 # RIDE Controller Demo
 
 独立 Controller 开发模板。RIDE 是控制平面，Ray 是执行底座；本仓库只实现一个
@@ -40,7 +42,7 @@ ride start controller demo-main
 
 要求：Ray Job RUNNING、类型身份匹配、Ready、日志可见、重复启动不重复提交、
 停止只影响本实例、恢复产生新的 Ready Job。
-该模板不依赖 GPU 或模型；CPU 验收不能证明任何调度策略或硬件性能。
+生命周期测试不依赖 GPU；完整验收必须连接真实 NPU 模型并触发控制动作。
 云端验收状态见 RIDE 仓库对应结果；未运行项不得写成 PASS。
 
 ## 可重复执行的验收
@@ -56,7 +58,7 @@ python scripts/acceptance.py --endpoint http://CONTROLLER_HOST:9012 \
 脚本不启动或停止 Ray 集群；运行完成后 demo-main 保持运行供检查。
 验收证据必须先保存，再用 `ride stop controller demo-main` 清理。
 
-2026-10-10，9450 临时 CPU Pod 的端到端验收 PASS：真实 Ray/RIDE/独立 Demo，
+2026-10-10，9450 临时 CPU Pod 的生命周期集成测试 PASS：真实 Ray/RIDE/独立 Demo，
 Ready、实际身份、重复启动、日志、停止和恢复均通过。RIDE 回归测试 14 项通过。
 Pod 已删除，未申请 GPU/NPU。原始日志见 `results/cloud.log`，机器可读结果见
 `results/acceptance.json`。这不证明模型请求处理或调度性能。

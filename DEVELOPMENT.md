@@ -1,3 +1,5 @@
+> 部署必须复用已有 RayCluster，不创建 Coder 模板／工作区。[统一边界规范](https://github.com/vLLM-HUST/ride/blob/main/docs/DEPLOYMENT_POLICY.md)。CPU 测试仅作前置检查，真实 NPU 端到端证据见 results/npu-20261011/summary.json。
+
 # RIDE Controller 开发规范
 
 本规范面向开发新 Controller 的同学。最终目标：安装一个独立 Controller 包，用
