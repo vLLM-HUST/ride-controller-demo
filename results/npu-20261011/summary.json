@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "date": "2026-10-11",
+  "hardware": "Ascend 910B single NPU",
+  "model": "Qwen3-0.6B",
+  "vllm": "0.23.0",
+  "state": {
+    "active": 0,
+    "waiting": 0,
+    "completed": 4,
+    "failed": 0,
+    "peak_active": 1,
+    "queued_total": 3
+  },
+  "responses": [
+    {
+      "prompt_tokens": 16,
+      "total_tokens": 80,
+      "completion_tokens": 64,
+      "prompt_tokens_details": null,
+      "completion_tokens_details": null
+    },
+    {
+      "prompt_tokens": 16,
+      "total_tokens": 80,
+      "completion_tokens": 64,
+      "prompt_tokens_details": null,
+      "completion_tokens_details": null
+    },
+    {
+      "prompt_tokens": 16,
+      "total_tokens": 80,
+      "completion_tokens": 64,
+      "prompt_tokens_details": null,
+      "completion_tokens_details": null
+    },
+    {
+      "prompt_tokens": 16,
+      "total_tokens": 80,
+      "completion_tokens": 64,
+      "prompt_tokens_details": null,
+      "completion_tokens_details": null
+    }
+  ],
+  "restored_response": {
+    "prompt_tokens": 16,
+    "total_tokens": 80,
+    "completion_tokens": 64,
+    "prompt_tokens_details": null,
+    "completion_tokens_details": null
+  },
+  "lifecycle": "controller stopped; model remained Ready; new Controller Job restored and inference succeeded",
+  "limitation": "non-streaming concurrency correctness only; no speedup claim",
+  "startup_failure": "libatb.so missing; fixed explicit Ray runtime_env LD_LIBRARY_PATH"
+}

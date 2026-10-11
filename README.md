@@ -1,7 +1,7 @@
 # RIDE Controller Demo
 
 独立 Controller 开发模板。RIDE 是控制平面，Ray 是执行底座；本仓库只实现一个
-可观察的 Controller 进程，不执行请求调度、不转发模型请求、不宣称性能收益。
+可观察的 Controller 进程，提供非流式请求并发限制与排队，转发到真实模型后端；不宣称性能收益。
 
 完整规范见 [RIDE Controller 开发规范](DEVELOPMENT.md)，包含系统分层、适配器接口、部署和验收标准。
 
@@ -60,3 +60,13 @@ python scripts/acceptance.py --endpoint http://CONTROLLER_HOST:9012 \
 Ready、实际身份、重复启动、日志、停止和恢复均通过。RIDE 回归测试 14 项通过。
 Pod 已删除，未申请 GPU/NPU。原始日志见 `results/cloud.log`，机器可读结果见
 `results/acceptance.json`。这不证明模型请求处理或调度性能。
+
+## NPU 端到端验收
+
+2026-10-11 云端单张 Ascend 910B、真实 vLLM 0.23.0 / Qwen3-0.6B：
+4 个并发请求成功，峰值后端并发 1、排队 3、失败 0；停止隔离、恢复及再次推理通过。
+见 [结果](results/npu-20261011/summary.json)。
+复用 `scripts/npu_acceptance.py`，显式传入 --backend、--endpoint、--model、
+--model-service 和 --output。脚本操作 npu-demo 实例，仅在隔离环境运行。
+Demo 默认并发上限 1，可用 JSON config 的 max_concurrency 修改，不支持流式请求。
+CPU 测试仅作前置检查，不能代替 NPU 验收。

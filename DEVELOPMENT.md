@@ -23,7 +23,7 @@ flowchart TB
 | Coder | 云端工作区和访问入口；不是 Controller 策略的一部分 |
 
 Controller 是独立进程，不一定在模型请求路径上。Request Throttling 转发请求；
-本 Demo 只演示部署与观测，不转发模型请求。RIDE 管理 API 不承载模型请求。
+本 Demo 已增加非流式请求并发限制并转发模型请求，NPU 验收见 README。RIDE 管理 API 不承载模型请求。
 
 ## 2. 一个 Controller 包需要提供什么
 
