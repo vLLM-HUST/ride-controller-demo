@@ -21,6 +21,7 @@ class Handler(BaseHTTPRequestHandler):
    length=int(self.headers.get('Content-Length','0'))
    if not 0<length<=1048576:raise ValueError('Invalid body size')
    payload=self.rfile.read(length);data=json.loads(payload)
+   if not isinstance(data,dict):raise ValueError('Request must be a JSON object')
    if data.get('stream'):raise ValueError('Streaming is not supported by this demo')
   except (ValueError,TypeError):self.reply(b'{"error":"invalid or unsupported request"}',400);return
   acquired=semaphore.acquire(blocking=False)

@@ -13,4 +13,4 @@ class Adapter:
   values={}
   for route in ('health','identity','status'):
    with urlopen(spec['endpoint'].rstrip('/')+'/'+route,timeout=2) as response:values[route]=json.load(response)
-  return dict(values,controller_ready=values['health'].get('status')=='ok' and values['identity'].get('controller_type')=='demo')
+  return dict(values,controller_ready=values['health'].get('status')=='ok' and values['identity'].get('controller_type')=='demo' and values['identity'].get('backend')==spec.get('backend') and values['identity'].get('max_concurrency')==spec.get('max_concurrency',1))
